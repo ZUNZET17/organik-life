@@ -3,7 +3,7 @@
     {% for block in section.blocks %}
       <div class="slider__slide">
         <div class="slide-content">
-          {% assign slideImage = 'slider-default-tiny.png' | asset_img_url: '1500x' %}
+          {% assign slideImage = 'slide-default-image.png' | asset_img_url: '1500x' %}
           <img
           class="slide__img"
           srcset="{%- if block.settings.image.width >= 375 -%}{{ block.settings.image | img_url: '375x' }} 375w,{%- endif -%}
@@ -24,9 +24,9 @@
           height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
         >
         <div class="slide__text-wrapper">
-          <p class="slide__title h5">{{ block.settings.slide-title | escape }}</p>
-          <p class="slide__paragraph">{{ block.settings.slide-paragraph }}</p>
-          <span class="slide__subtitle">{{ block.settings.slide-subtitle }}</span>
+          <span class="slide__title h5 {% if block.settings.title_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.title_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-title | escape }}</span>
+          <p class="slide__paragraph">{{ block.settings.slide-paragraph | escape }}</p>
+          <span class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.subtitle_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle | escape }}</span>
         </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
         {
           "type": "text",
           "id": "slide-title",
-          "default": "slide title",
+          "default": "All Natural",
           "label": "Slide title"
         },
         {
@@ -66,40 +66,20 @@
               "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
             }
           ],
-          "default": "body",
-          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+          "default": "uppercase",
+          "label": "Title style"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "slide-paragraph",
-          "label": "Slide subtitle",
-          "default": "Slide subtitle"
-        },
-        {
-          "type": "select",
-          "id": "paragraph_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+          "label": "Slide main text",
+          "default": ""
         },
         {
           "type": "text",
           "id": "slide-subtitle",
           "label": "Slide subtitle",
-          "default": "Slide subtitle"
+          "default": "trust the nature"
         },
         {
           "type": "select",
@@ -118,8 +98,8 @@
               "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
             }
           ],
-          "default": "body",
-          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+          "default": "subtitle",
+          "label": "Subtitle style"
         },
         {
           "type": "image_picker",
@@ -177,46 +157,6 @@
       "default": 100,
       "unit": "t:sections.header.settings.logo_width.unit",
       "label": "t:sections.header.settings.logo_width.label"
-    },
-    {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_position.info"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_sticky_header",
-      "default": true,
-      "label": "t:sections.header.settings.enable_sticky_header.label",
-      "info": "t:sections.header.settings.enable_sticky_header.info"
     }
   ],
   "presets": [

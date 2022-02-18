@@ -1,19 +1,5 @@
 {
   "sections": {
-    "slider": {
-      "type": "slider",
-      "blocks": {
-        "slide": {
-          "type": "slide",
-          "settings": {
-            "slide-title": "This is the slide title"
-          }
-        }
-      },
-      "block_order": [
-        "slide"
-      ]
-    },
     "image_banner": {
       "type": "image-banner",
       "settings": {

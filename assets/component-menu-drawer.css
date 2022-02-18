@@ -34,10 +34,11 @@ menu-drawer > details[open] > summary::before {
   visibility: hidden;
   z-index: 3;
   left: 0;
-  top: 100%;
-  width: calc(100vw - 4rem);
+  top: 0;
+  width: calc(100vw - 7rem);
   padding: 0;
   border-width: 0 var(--drawer-border-width) 0 0;
+  color: #fff;
   background-color: rgb(var(--color-background));
   overflow-x: hidden;
   border-style: solid;
@@ -51,10 +52,10 @@ menu-drawer > details[open] > summary::before {
 }
 
 .js .menu-drawer {
-  height: calc(100vh - 100%);
-  height: calc(
+  height: 100vh;
+  /* height: calc(
     var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%))
-  );
+  ); */
 }
 
 .js details[open] > .menu-drawer,
@@ -83,6 +84,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__inner-container {
   position: relative;
   height: 100%;
+  padding: 2rem 1.5rem 0;
 }
 
 .menu-drawer__navigation-container {
@@ -90,11 +92,10 @@ details[open].menu-opening > .menu-drawer__submenu {
   grid-template-rows: 1fr auto;
   align-content: space-between;
   overflow-y: auto;
-  height: 100%;
 }
 
 .menu-drawer__navigation {
-  padding: 5.6rem 0;
+  padding: 1rem 0 5.6rem;
 }
 
 .menu-drawer__inner-submenu {
@@ -150,7 +151,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__close-button:focus,
 .menu-drawer__menu-item:hover,
 .menu-drawer__close-button:hover {
-  color: rgb(var(--color-foreground));
+  color: #8eb35a;
   background-color: rgba(var(--color-foreground), 0.04);
 }
 

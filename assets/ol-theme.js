@@ -1,3 +1,4 @@
+// organik life script
 const OlTheme = (function () {
 
   const init = function () {

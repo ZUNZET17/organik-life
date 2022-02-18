@@ -3,7 +3,7 @@
     {% for block in section.blocks %}
       <div class="slider__slide">
         <div class="slide-content">
-          {% assign slideImage = 'slide-default-img.png' | asset_img_url: '1500x' %}
+          {% assign slideImage = 'slide-default-image.png' | asset_img_url: '1500x' %}
           <img
           class="slide__img"
           srcset="{%- if block.settings.image.width >= 375 -%}{{ block.settings.image | img_url: '375x' }} 375w,{%- endif -%}
@@ -24,9 +24,9 @@
           height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
         >
         <div class="slide__text-wrapper">
-          <span class="slide__title h5 {% if block.settings.title_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-title | escape }}</span>
-          <p class="slide__paragraph">{{ block.settings.slide-paragraph }}</p>
-          <p class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle }}</p>
+          <span class="slide__title h5 {% if block.settings.title_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.title_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-title | escape }}</span>
+          <p class="slide__paragraph">{{ block.settings.slide-paragraph | escape }}</p>
+          <span class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.subtitle_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle | escape }}</span>
         </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
               "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
             }
           ],
-          "default": "uppercase",
+          "default": "subtitle",
           "label": "Subtitle style"
         },
         {
@@ -157,33 +157,6 @@
       "default": 100,
       "unit": "t:sections.header.settings.logo_width.unit",
       "label": "t:sections.header.settings.logo_width.label"
-    },
-    {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_position.info"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
     }
   ],
   "presets": [

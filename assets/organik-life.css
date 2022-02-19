@@ -14,16 +14,9 @@
 }
 
 /* Slider */
-
 .slide-content {
   display: flex;
-  justify-content: center;
 }
-
-.slide-content p {
-  margin: 0;
-}
-
 .slide__img {
   width: 100vw;
   max-height: 44.5vw;
@@ -32,22 +25,11 @@
 }
 .slide__text-wrapper {
   position: absolute;
-  width: max-content;
-  transform: translateY(20%);
+  width: 50%;
+  top: 0;
+  transform: translateX(50%);
   text-align: center;
 }
 .slide__title {
-  font-weight: bold;
-}
 
-.slide__paragraph {
-  font-style: italic;
-  font-size: 2.5rem;
-  line-height: normal;
-  margin: 0;
-}
-
-.slide__subtitle {
-  font-size: 1rem;
-  font-weight: bold;
 }

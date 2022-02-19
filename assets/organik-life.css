@@ -16,7 +16,13 @@
 /* Slider */
 .slide-content {
   display: flex;
+  justify-content: center;
 }
+
+.slide-content p {
+  margin: 0;
+}
+
 .slide__img {
   width: 100vw;
   max-height: 44.5vw;

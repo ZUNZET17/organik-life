@@ -3,7 +3,7 @@
     {% for block in section.blocks %}
       <div class="slider__slide">
         <div class="slide-content">
-          {% assign slideImage = 'slider-default-tiny.png' | asset_img_url: '1500x' %}
+          {% assign slideImage = 'slide-default-img.png' | asset_img_url: '1500x' %}
           <img
           class="slide__img"
           srcset="{%- if block.settings.image.width >= 375 -%}{{ block.settings.image | img_url: '375x' }} 375w,{%- endif -%}
@@ -24,7 +24,6 @@
           height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
         >
         <div class="slide__text-wrapper">
-<<<<<<< HEAD
           <span class="slide__title h5 {% if block.settings.title_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.title_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-title | escape }}</span>
           <div class="slide__paragraph">{{ block.settings.slide-paragraph }}</div>
           {% if block.settings.slide-subtitle != blank %}
@@ -33,11 +32,6 @@
           </div>
           {% endif %}
           <div class="slide__btn"><a class="button" href="">{{- block.settings.btn-txt -}}</a></div>
-=======
-          <p class="slide__title h5">{{ block.settings.slide-title | escape }}</p>
-          <p class="slide__paragraph">{{ block.settings.slide-paragraph }}</p>
-          <span class="slide__subtitle">{{ block.settings.slide-subtitle }}</span>
->>>>>>> main
         </div>
         </div>
       </div>
@@ -57,7 +51,7 @@
         {
           "type": "text",
           "id": "slide-title",
-          "default": "slide title",
+          "default": "All natural",
           "label": "Slide title"
         },
         {
@@ -77,49 +71,19 @@
               "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
             }
           ],
-          "default": "body",
+          "default": "uppercase",
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
         },
         {
           "type": "textarea",
           "id": "slide-paragraph",
-<<<<<<< HEAD
           "label": "Slide main text",
           "default": "<p>Holistic and <strong> Organic</strong> products</p>"
-=======
-          "label": "Slide subtitle",
-          "default": "Slide subtitle"
-        },
-        {
-          "type": "select",
-          "id": "paragraph_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
->>>>>>> main
         },
         {
           "type": "text",
           "id": "slide-subtitle",
-<<<<<<< HEAD
           "label": "Slide subtitle"
-=======
-          "label": "Slide subtitle",
-          "default": "Slide subtitle"
->>>>>>> main
         },
         {
           "type": "select",

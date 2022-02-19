@@ -12,7 +12,8 @@ const OlTheme = (function () {
 
   $(document).ready(function(){
     $('.js-slider').slick({
-      dots: false
+      dots: false,
+      arrows: false
     });
   });
 

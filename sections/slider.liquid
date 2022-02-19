@@ -26,7 +26,11 @@
         <div class="slide__text-wrapper">
           <span class="slide__title h5 {% if block.settings.title_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.title_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-title | escape }}</span>
           <div class="slide__paragraph">{{ block.settings.slide-paragraph }}</div>
-          <span class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.subtitle_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle | escape }}</span>
+          {% if block.settings.slide-subtitle != blank %}
+          <div class="">
+            <span class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.subtitle_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle | escape }}</span>
+          </div>
+          {% endif %}
           <div class="slide__btn"><a class="button" href="">{{- block.settings.btn-txt -}}</a></div>
         </div>
         </div>

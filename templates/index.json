@@ -5,10 +5,19 @@
       "blocks": {
         "slide": {
           "type": "slide"
+        },
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "slide-title": "check out the",
+            "slide-paragraph": "<p>Latest <strong>Health</strong> trends</p>",
+            "slide-subtitle": "in our blog"
+          }
         }
       },
       "block_order": [
-        "slide"
+        "slide",
+        "slide1"
       ]
     },
     "image_banner": {

@@ -53,6 +53,7 @@
   display: inline-block;
   font-size: 1rem;
   font-weight: bold;
+  margin-top: 0;
 }
 
 .slide__btn{
@@ -77,6 +78,11 @@
 
   .slide__paragraph {
     font-size: 4.7vw;
+  }
+
+  .slide__subtitle {
+    margin-top: 1rem;
+    font-size: 2rem;
   }
 
   .slide__btn{

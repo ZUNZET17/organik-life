@@ -1,16 +1,5 @@
 {
   "sections": {
-    "slider": {
-      "type": "slider",
-      "blocks": {
-        "slide": {
-          "type": "slide"
-        }
-      },
-      "block_order": [
-        "slide"
-      ]
-    },
     "image_banner": {
       "type": "image-banner",
       "settings": {

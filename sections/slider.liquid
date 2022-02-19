@@ -24,9 +24,20 @@
           height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio }}"
         >
         <div class="slide__text-wrapper">
+<<<<<<< HEAD
+          <span class="slide__title h5 {% if block.settings.title_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.title_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-title | escape }}</span>
+          <div class="slide__paragraph">{{ block.settings.slide-paragraph }}</div>
+          {% if block.settings.slide-subtitle != blank %}
+          <div class="">
+            <span class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.subtitle_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle | escape }}</span>
+          </div>
+          {% endif %}
+          <div class="slide__btn"><a class="button" href="">{{- block.settings.btn-txt -}}</a></div>
+=======
           <p class="slide__title h5">{{ block.settings.slide-title | escape }}</p>
           <p class="slide__paragraph">{{ block.settings.slide-paragraph }}</p>
           <span class="slide__subtitle">{{ block.settings.slide-subtitle }}</span>
+>>>>>>> main
         </div>
         </div>
       </div>
@@ -72,6 +83,10 @@
         {
           "type": "textarea",
           "id": "slide-paragraph",
+<<<<<<< HEAD
+          "label": "Slide main text",
+          "default": "<p>Holistic and <strong> Organic</strong> products</p>"
+=======
           "label": "Slide subtitle",
           "default": "Slide subtitle"
         },
@@ -94,12 +109,17 @@
           ],
           "default": "body",
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+>>>>>>> main
         },
         {
           "type": "text",
           "id": "slide-subtitle",
+<<<<<<< HEAD
+          "label": "Slide subtitle"
+=======
           "label": "Slide subtitle",
           "default": "Slide subtitle"
+>>>>>>> main
         },
         {
           "type": "select",
@@ -120,6 +140,12 @@
           ],
           "default": "body",
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "text",
+          "id": "btn-txt",
+          "label": "Button text",
+          "default": "SHOP NOW"
         },
         {
           "type": "image_picker",

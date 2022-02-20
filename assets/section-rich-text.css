@@ -23,7 +23,8 @@
 
 .rich-text--full-width .rich-text__blocks {
   /* 4rem (1.5rem + 2.5rem) margin on left & right */
-  width: calc(100% - 8rem / var(--font-body-scale));
+  width: 100%;
+  padding: 0 1.5rem;
 }
 
 @media screen and (min-width: 750px) {

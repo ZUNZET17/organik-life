@@ -176,13 +176,16 @@
 }
 
 .collage-content__info {
-  display: none;
   max-width: 100%;
   position: absolute;
   top: 0;
 }
 
 .collage-content__info h3 {
+  margin-left: unset;
+  word-break: break-all;
+  color: #fff;
+  text-shadow: 2px 2px 3px gray;
   font-size: 1.5rem;
   padding: 0 0.5rem;
 }
@@ -198,3 +201,28 @@
 .collection-card--horizontal {
   grid-column-end: span 2;
 }
+
+@media screen and (min-width: 768px) {
+
+  .collection-card--squared {
+    grid-column-end: span 2;
+  }
+
+  .collage-card__image {
+    height: 30rem;
+  }
+
+  .collection-card--vertical img {
+    height: 60rem;
+  }
+
+  .collection-card--horizontal {
+    grid-column-end: span 4;
+  }
+
+  .collage-content__info h3 {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+  }
+}
+

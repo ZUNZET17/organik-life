@@ -20,32 +20,6 @@
         "slide1"
       ]
     },
-    "image_banner": {
-      "type": "image-banner",
-      "settings": {
-        "desktop_content_position": "middle-center"
-      },
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_label_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ]
-    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -117,7 +91,6 @@
   },
   "order": [
     "slider",
-    "image_banner",
     "rich_text",
     "featured_products",
     "collage",

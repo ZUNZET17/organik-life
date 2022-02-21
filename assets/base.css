@@ -973,7 +973,6 @@ summary::-webkit-details-marker {
   margin-bottom: 2rem;
   margin-left: calc(-1 * var(--grid-mobile-horizontal-spacing));;
   padding: 0;
-  /* grid-gap: 1rem; */
   list-style: none;
 }
 

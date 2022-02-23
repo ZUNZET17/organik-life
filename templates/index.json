@@ -4,13 +4,15 @@
       "type": "slider",
       "blocks": {
         "slide": {
-          "type": "slide"
+          "type": "slide",
+          "settings": {
+          }
         },
         "slide1": {
           "type": "slide",
           "settings": {
             "slide-title": "Check out the",
-            "slide-paragraph": "<p>Latest <strong>Health</strong> trends</p>",
+            "slide-paragraph": "<p>Latest <strong>Health<\/strong> trends<\/p>",
             "slide-subtitle": "in our blog"
           }
         }
@@ -18,26 +20,36 @@
       "block_order": [
         "slide",
         "slide1"
-      ]
+      ],
+      "settings": {
+      }
     },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
         "heading": {
-          "type": "heading"
+          "type": "heading",
+          "settings": {
+          }
         },
         "text": {
-          "type": "text"
+          "type": "text",
+          "settings": {
+          }
         },
         "button": {
-          "type": "button"
+          "type": "button",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "heading",
         "text",
         "button"
-      ]
+      ],
+      "settings": {
+      }
     },
     "featured_products": {
       "type": "featured-collection",
@@ -51,34 +63,48 @@
       "type": "collage",
       "blocks": {
         "collection": {
-          "type": "collection"
+          "type": "collection",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "collection"
-      ]
+      ],
+      "settings": {
+      }
     },
     "video": {
-      "type": "video"
+      "type": "video",
+      "settings": {
+      }
     },
     "multi_column": {
       "type": "multicolumn",
       "blocks": {
         "column1": {
-          "type": "column"
+          "type": "column",
+          "settings": {
+          }
         },
         "column2": {
-          "type": "column"
+          "type": "column",
+          "settings": {
+          }
         },
         "column3": {
-          "type": "column"
+          "type": "column",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "column1",
         "column2",
         "column3"
-      ]
+      ],
+      "settings": {
+      }
     }
   },
   "order": [

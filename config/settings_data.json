@@ -1,6 +1,9 @@
 {
   "current": {
+    "colors_accent_1": "#8eb35a",
     "type_body_font": "playfair_display_n4",
+    "buttons_radius": 24,
+    "card_border_thickness": 0,
     "sections": {
       "header": {
         "type": "header",

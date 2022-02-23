@@ -183,7 +183,7 @@
 
 .collage-content__info h3 {
   margin-left: unset;
-  word-break: break-all;
+  word-break: break-word;
   color: #fff;
   text-shadow: 2px 2px 3px gray;
   font-size: 1.5rem;

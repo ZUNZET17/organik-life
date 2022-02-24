@@ -968,17 +968,17 @@ summary::-webkit-details-marker {
 
 /* component-grid */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  margin-left: calc(-1 * var(--grid-mobile-horizontal-spacing));;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--grid-desktop-vertical-spacing);
+  row-gap: var(--grid-desktop-horizontal-spacing);
   list-style: none;
 }
 
 @media screen and (min-width: 750px) {
   .grid {
-    margin-left: calc(-1 * var(--grid-desktop-horizontal-spacing));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -987,20 +987,14 @@ summary::-webkit-details-marker {
 }
 
 .grid__item {
-  padding-left: var(--grid-mobile-horizontal-spacing);
-  padding-bottom: var(--grid-mobile-vertical-spacing);
-  width: calc(25% - 0.5rem * 3 / 4);
-  max-width: 50%;
-  flex-grow: 1;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media screen and (min-width: 750px) {
   .grid__item {
-    padding-left: var(--grid-desktop-horizontal-spacing);
-    padding-bottom: var(--grid-desktop-vertical-spacing);
-    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
-    max-width: 50%;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -1034,48 +1028,48 @@ summary::-webkit-details-marker {
 }
 
 .grid--3-col .grid__item {
-  width: calc(33.33% - var(--grid-mobile-horizontal-spacing) * 2 / 3);
+  width: 100%;
 }
 
 @media screen and (min-width: 750px) {
   .grid--3-col .grid__item {
-    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    width: 100%;
   }
 }
 
 .grid--2-col .grid__item {
-  width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
+  width: 100%;
 }
 
 @media screen and (min-width: 750px) {
   .grid--2-col .grid__item {
-    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: 100%;
   }
 
   .grid--4-col-tablet .grid__item {
-    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    width: 100%;
   }
 
   .grid--3-col-tablet .grid__item {
-    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    width: 100%);
   }
 
   .grid--2-col-tablet .grid__item {
-    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 990px) {
   .grid--4-col-desktop .grid__item {
-    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    width: 100%;
   }
 
   .grid--3-col-desktop .grid__item {
-    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    width: 100%
   }
 
   .grid--2-col-desktop .grid__item {
-    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: 100%;
   }
 }
 

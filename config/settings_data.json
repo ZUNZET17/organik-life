@@ -2,6 +2,8 @@
   "current": {
     "colors_accent_1": "#8eb35a",
     "type_body_font": "playfair_display_n4",
+    "spacing_grid_horizontal": 20,
+    "spacing_grid_vertical": 20,
     "buttons_radius": 24,
     "card_text_alignment": "center",
     "card_border_thickness": 0,

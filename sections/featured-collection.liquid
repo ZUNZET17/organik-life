@@ -32,11 +32,49 @@
 -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
+
+  <form class="product-type-filter">
+    {%- for filter in section.settings.collection.filters -%}
+      {% if filter.label == 'Product type' %}
+        <div class="filter-group-display">
+  
+          <ul class="product-type-filter__list">
+            {% assign defaultInputName = filter.values[0].param_name %}
+            <li class="product-type-filter__list-item">
+              <input type="radio"
+              class="product-type-filter__input"
+              name="{{ defaultInputName }}"
+              value="All"
+              id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+              {% if filter_value.active -%}checked{%- endif %}
+              {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+            >
+              <label class="product-type-filter__label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">All</label>
+            </li>
+            {%- for filter_value in filter.values -%}
+              <li class="product-type-filter__list-item">
+                <input type="radio"
+                class="product-type-filter__input"
+                name="{{ filter_value.param_name }}"
+                value="{{ filter_value.value }}"
+                id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                {% if filter_value.active -%}checked{%- endif %}
+                {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
+              >
+                <label class="product-type-filter__label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">{{ filter_value.label }}</label>
+              </li>
+            {%- endfor -%}
+          </ul>
+          
+        </div>
+      {% endif %}  
+    {%- endfor -%}
+  </form>
+  
   <div class="collection page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %} section-{{ section.id }}-padding">
     {% unless section.settings.title == blank %}
       <div class="title-wrapper-with-link{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %} title-wrapper--no-top-margin">
         <h2 class="title{% if section.settings.title == blank %} title--no-heading{% endif %}">{{ section.settings.title | escape }}</h2>
-  
         {%- if section.settings.show_view_all and section.settings.swipe_on_mobile and more_in_collection -%}
           <a href="{{ section.settings.collection.url }}" class="link underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
         {%- endif -%}

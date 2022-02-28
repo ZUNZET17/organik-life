@@ -286,7 +286,8 @@ input[type='radio'] {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-bottom: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .feature {
@@ -327,7 +328,7 @@ input[type='radio'] {
 
 @media screen and ( min-width: 768px ) {
   .features-content {
-    height: 45rem;
+    height: 33rem;
   }
 
   .feature {
@@ -340,17 +341,9 @@ input[type='radio'] {
     align-self: flex-end;
   }
 
-  .feature:nth-child(2) {
-    align-items: flex-start;
-  }
-
-  .feature:nth-child(3) {
-    align-items: flex-end;
-  }
-
   .features__main-image {
     display: block;
-    margin: -17.5rem auto 0;
+    margin: -15.5rem auto 0;
     width: 50rem;
     padding: 0;
   }

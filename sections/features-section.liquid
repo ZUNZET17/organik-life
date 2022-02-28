@@ -22,7 +22,7 @@
   assign badge = 'bio-badge.png' | asset_img_url: 'master'
   assign mainImage = 'sliced-kiwi.png' | asset_img_url: 'master'
 -%}
-<div class="features-wrapper page-width">
+<div class="features-wrapper page-width section-{{ section.id }}-padding">
   <h2 class="h1 heading--section">{{ section.settings.heading | escape }}</h2>
   <div class="features-content">
     {% for block in section.blocks %}

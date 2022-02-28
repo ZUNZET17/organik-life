@@ -310,6 +310,7 @@ input[type='radio'] {
 .feature__txt {
   width: 100%;
   font-family: 'Lato', sans-serif;
+  color: #696969;
   margin: 0;
 }
 
@@ -341,6 +342,14 @@ input[type='radio'] {
     align-self: flex-end;
   }
 
+  .feature:nth-child(2) {
+    padding-right: 2.5rem;
+  }
+
+  .feature:nth-child(3) {
+    padding-left: 2.5rem;
+  }
+
   .features__main-image {
     display: block;
     margin: -15.5rem auto 0;
@@ -348,13 +357,6 @@ input[type='radio'] {
     padding: 0;
   }
 
-}
-
-@media screen and ( min-width: 1024px ){
-  .feature:nth-child(2),
-  .feature:nth-child(3) {
-    align-items: center;
-  }
 }
 
 

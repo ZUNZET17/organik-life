@@ -149,6 +149,7 @@
   text-transform: uppercase;
   font-size: 2.5rem;
   letter-spacing: 0.15em;
+  text-align: center;
   color: #444444;
 }
 
@@ -212,7 +213,7 @@ input[type='radio'] {
 }
 
 /* Collections */
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
 .card__heading {
   font-family: 'PlayFair Display', sans-serif;
   font-weight: 600;
@@ -280,6 +281,85 @@ input[type='radio'] {
   }
 }
 
+/* Features section */
+.features-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.feature {
+  padding: 0.5rem;
+  width: calc( 50% - 1rem );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.feature__heading {
+  width: 100%;
+  font-family: "Playfair Display",serif;
+  font-weight: 700;
+  margin: 1rem auto;
+}
+
+.feature__txt {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  color: #696969;
+  margin: 0;
+}
+
+.feature__img {
+  display: block;
+  width: 100%;
+  max-width: 10rem;
+}
+
+.features__main-image {
+  margin-top: 0;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 2rem;
+}
+
+@media screen and ( min-width: 768px ) {
+  .features-content {
+    height: 33rem;
+  }
+
+  .feature {
+    align-self: flex-start;
+    width: calc( 25% - 1rem );
+  }
+
+  .feature:first-child,
+  .feature:last-child {
+    align-self: flex-end;
+  }
+
+  .feature:nth-child(2) {
+    padding-right: 2.5rem;
+  }
+
+  .feature:nth-child(3) {
+    padding-left: 2.5rem;
+  }
+
+  .features__main-image {
+    display: block;
+    margin: -15.5rem auto 0;
+    width: 50rem;
+    padding: 0;
+  }
+
+}
+
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -287,7 +367,6 @@ input[type='radio'] {
   }
   100% {
     opacity: 0;
-    display none;
     width: 0px;
     padding: 0;
     border: 0;

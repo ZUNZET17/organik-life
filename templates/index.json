@@ -161,6 +161,53 @@
         "mobile_layout": "collage"
       }
     },
+    "features": {
+      "type": "features-section",
+      "blocks": {
+        "feature": {
+          "type": "feature",
+          "settings": {
+            "heading": "All",
+            "text": "Natural products"
+          }
+        },
+        "feature1": {
+          "type": "feature",
+          "settings": {
+            "badge": "shopify:\/\/shop_images\/eco-badge.png",
+            "heading": "Eco Friendly",
+            "text": "Produced sustainably"
+          }
+        },
+        "feature2": {
+          "type": "feature",
+          "settings": {
+            "badge": "shopify:\/\/shop_images\/vegan-badge.png",
+            "heading": "Vegan Protein",
+            "text": "Options available"
+          }
+        },
+        "feature3": {
+          "type": "feature",
+          "settings": {
+            "badge": "shopify:\/\/shop_images\/no-gluten-badge.png",
+            "heading": "Healthy Food",
+            "text": "No hassles"
+          }
+        }
+      },
+      "block_order": [
+        "feature",
+        "feature1",
+        "feature2",
+        "feature3"
+      ],
+      "settings": {
+        "heading": "Features",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "video": {
       "type": "video",
       "settings": {
@@ -229,6 +276,7 @@
     "rich_text",
     "featured_products",
     "collage",
+    "features",
     "video",
     "multi_column"
   ]

@@ -28,6 +28,15 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "e0f60487-9569-4d20-a145-589b3d25d81d": {
+            "type": "contact",
+            "settings": {
+              "location": "60 Pendergast Street Brooklyn, NY 11237",
+              "phone": "+1 9946-75-432",
+              "email": "sales@organik-life.com",
+              "website": "shopify:\/\/collections"
+            }
+          },
           "footer-0": {
             "type": "link_list",
             "settings": {
@@ -44,6 +53,7 @@
           }
         },
         "block_order": [
+          "e0f60487-9569-4d20-a145-589b3d25d81d",
           "footer-0",
           "footer-1"
         ],

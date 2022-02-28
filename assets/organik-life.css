@@ -205,7 +205,7 @@ input[type='radio'] {
   font-size: inherit;
 }
 
-.grid__item {
+.product-grid__item {
   padding: 1rem;
   border: 1px solid #f4f1e3;
   transition: all 0.3s ease;
@@ -372,4 +372,10 @@ input[type='radio'] {
     border: 0;
     visibility: hidden;
   }
+}
+
+/* Featured Blog */
+
+.blog-post__information {
+  text-align: left;
 }

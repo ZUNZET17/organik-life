@@ -1,5 +1,28 @@
 {
   "sections": {
+    "features": {
+      "type": "features-section",
+      "blocks": {
+        "feature": {
+          "type": "feature"
+        },
+        "feature1": {
+          "type": "feature"
+        },
+        "feature2": {
+          "type": "feature"
+        },
+        "feature3": {
+          "type": "feature"
+        }
+      },
+      "block_order": [
+        "feature",
+        "feature1",
+        "feature2",
+        "feature3"
+      ]
+    },
     "slider": {
       "type": "slider",
       "blocks": {
@@ -229,6 +252,7 @@
     "rich_text",
     "featured_products",
     "collage",
+    "features",
     "video",
     "multi_column"
   ]

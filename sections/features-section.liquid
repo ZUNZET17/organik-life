@@ -27,15 +27,12 @@
   <div class="features-content">
     {% for block in section.blocks %}
     {%- liquid
-      if block.settings.badge != blank
-        assign badge = block.settings.badge | image_url: 'master'
-      endif
       if section.settings.main_img != blank
-      assign mainImage = section.settings.main_img | image_url: 'master'
+        assign mainImage = section.settings.main_img | image_url: 'master'
       endif
     -%}
     <div class="feature">
-      <img src="{{ badge }}" width="{{ badge.width }}" height="{{ badge.height }}" alt="" class="feature__img" loading="lazy">
+      <img src="{% if block.settings.badge != blank %}{{ block.settings.badge | img_url: 'master' }} {% else %}{{ badge }}{% endif %}" width="{{ badge.width }}" height="{{ badge.height }}" alt="" class="feature__img" loading="lazy">
       <h3 class="feature__heading">{{ block.settings.heading | escape}}</h3>
       <p class="feature__txt">{{ block.settings.text | escape}}</p>
     </div>

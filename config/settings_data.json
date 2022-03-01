@@ -17,7 +17,10 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo_width": 100,
+          "logo": "shopify:\/\/shop_images\/organika-logo-black_cfeaa0a2-8879-457b-9c9f-b64d9a7b7630.png",
+          "logo_width": 200,
+          "logo_drawer": "shopify:\/\/shop_images\/organika_logo.png",
+          "logo_drawer_width": 250,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "show_line_separator": true,
@@ -31,6 +34,8 @@
           "e0f60487-9569-4d20-a145-589b3d25d81d": {
             "type": "contact",
             "settings": {
+              "heading": "Contact",
+              "show_social": true,
               "location": "60 Pendergast Street Brooklyn, NY 11237",
               "phone": "+1 9946-75-432",
               "email": "sales@organik-life.com",
@@ -61,7 +66,6 @@
           "color_scheme": "background-1",
           "newsletter_enable": true,
           "newsletter_heading": "Subscribe to our emails",
-          "show_social": true,
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": true,

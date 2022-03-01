@@ -19,6 +19,12 @@
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
 
+  .footer-block--newsletter {
+    background: #f2f2f2 url(' //cdn.shopify.com/s/files/1/0623/7900/0029/t/2/assets/veggies-background.jpg?v=2990686910688610339 ') 50% 0%;
+    background-size: 100%;
+    background-blend-mode: multiply;
+  }
+
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -27,6 +33,11 @@
   @media screen and (min-width: 750px) {
     .footer {
       margin-top: {{ section.settings.margin_top }}px;
+    }
+
+    .footer-block--newsletter {
+      background-size: cover;
+      background-position: 50% 50%;
     }
 
     .section-{{ section.id }}-padding {
@@ -38,7 +49,56 @@
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
-    <div class="footer__content-top page-width">
+  <div class="footer-block--newsletter">
+    {%- if section.settings.newsletter_enable -%}
+      <div class="footer-block__newsletter page-width">
+        {%- if section.settings.newsletter_heading != blank -%}
+          <h2 class="newsletter-heading">{{ section.settings.newsletter_heading | escape }}</h2>
+        {%- endif -%}
+        {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-form__field-wrapper">
+            <div class="field newsletter-field">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="field__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="ContactFooter-error"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="ContactFooter-success"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+              <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                {{ 'newsletter.label' | t }}
+              </label>
+              <button type="submit" class="newsletter__submit button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                SEND
+              </button>
+            </div>
+            {%- if form.errors -%}
+              <small class="newsletter-form__message form__message" id="ContactFooter-error">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+            {%- endif -%}
+          </div>
+          {%- if form.posted_successfully? -%}
+            <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+    <div class="footer__content-top">
       {%- if section.blocks.size > 0 -%}
         {%- liquid
           if section.blocks.size == 9
@@ -50,164 +110,114 @@
           endif
         -%}
 
-        <div class="footer-block--newsletter">
-          {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
-              {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading">{{ section.settings.newsletter_heading | escape }}</h2>
-              {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                <input type="hidden" name="contact[tags]" value="newsletter">
-                <div class="newsletter-form__field-wrapper">
-                  <div class="field">
-                    <input
-                      id="NewsletterForm--{{ section.id }}"
-                      type="email"
-                      name="contact[email]"
-                      class="field__input"
-                      value="{{ form.email }}"
-                      aria-required="true"
-                      autocorrect="off"
-                      autocapitalize="off"
-                      autocomplete="email"
-                      {% if form.errors %}
-                        autofocus
-                        aria-invalid="true"
-                        aria-describedby="ContactFooter-error"
-                      {% elsif form.posted_successfully? %}
-                        aria-describedby="ContactFooter-success"
-                      {% endif %}
-                      placeholder="{{ 'newsletter.label' | t }}"
-                      required
-                    >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                      {{ 'newsletter.label' | t }}
-                    </label>
-                    <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
-                      {% render 'icon-arrow' %}
-                    </button>
-                  </div>
-                  {%- if form.errors -%}
-                    <small class="newsletter-form__message form__message" id="ContactFooter-error">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
-                  {%- endif -%}
-                </div>
-                {%- if form.posted_successfully? -%}
-                  <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
-                {%- endif -%}
-              {%- endform -%}
-            </div>
-          {%- endif -%}
-
-          {%- if section.settings.show_social -%}
-            <ul class="footer__list-social list-unstyled list-social" role="list">
-              {%- if settings.social_twitter_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_twitter_link }}" class="link list-social__link" >
-                    {%- render 'icon-twitter' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_facebook_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_facebook_link }}" class="link list-social__link" >
-                    {%- render 'icon-facebook' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_pinterest_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_pinterest_link }}" class="link list-social__link" >
-                    {%- render 'icon-pinterest' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_instagram_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_instagram_link }}" class="link list-social__link" >
-                    {%- render 'icon-instagram' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_tiktok_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_tiktok_link }}" class="link list-social__link" >
-                    {%- render 'icon-tiktok' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_tumblr_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_tumblr_link }}" class="link list-social__link" >
-                    {%- render 'icon-tumblr' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_snapchat_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_snapchat_link }}" class="link list-social__link" >
-                    {%- render 'icon-snapchat' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_youtube_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_youtube_link }}" class="link list-social__link" >
-                    {%- render 'icon-youtube' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_vimeo_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_vimeo_link }}" class="link list-social__link" >
-                    {%- render 'icon-vimeo' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
-            </ul>
-          {%- endif -%}
-        </div>
-
         <div class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
           {%- for block in section.blocks -%}
             <div class="footer-block grid__item{% if block.type == 'link_list' and block.settings.heading != blank %} footer-block--menu{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.heading != blank -%}
-                <h2 class="footer-block__heading">{{- block.settings.heading | escape -}}</h2>
+              <h2 class="footer-block__heading page-width">{{- block.settings.heading | escape -}}</h2>
               {%- endif -%}
-
+              <div class="footer-block__content page-width">
               {%- case block.type -%}
                 {% when 'contact' %}
                   <div class="footer-block__details-content footer-contact">
                     <ul class="list-unstyled">
                         <li>
-                          <span class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            <i class="fa-solid fa-location-dot"></i> {{ block.settings.location }}
+                          <span class="link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                            <i class="fas fa-map-marker-alt"></i> {{ block.settings.location }}
                           </span>
                         </li>
                         <li>
-                          <span class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            <i class="fa-solid fa-phone"></i> {{ block.settings.location }}
+                          <span class="footer-contact__info-item link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                            <i class="fas fa-phone-alt"></i> {{ block.settings.phone }}
                           </span>
                         </li>
                         <li>
-                          <span class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            <i class="fa-solid fa-envelope"></i> {{ block.settings.location }}
+                          <span class="footer-contact__info-item link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                            <i class="fas fa-envelope"></i> {{ block.settings.email }}
                           </span>
                         </li>
                         <li>
-                          <span class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
-                            <i class="fa-solid fa-location-dot"></i>{{ block.settings.location }}
+                          <span class="footer-contact__info-item link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
+                            <i class="fas fa-globe"></i> {{ block.settings.website }}
                           </span>
                         </li>
                     </ul>
+                    {%- if block.settings.show_social -%}
+                    <ul class="footer__list-social list-unstyled list-social" role="list">
+                      {%- if settings.social_twitter_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_twitter_link }}" class="link list-social__link" >
+                            {%- render 'icon-twitter' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_facebook_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_facebook_link }}" class="link list-social__link" >
+                            {%- render 'icon-facebook' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_pinterest_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_pinterest_link }}" class="link list-social__link" >
+                            {%- render 'icon-pinterest' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_instagram_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_instagram_link }}" class="link list-social__link" >
+                            {%- render 'icon-instagram' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_tiktok_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_tiktok_link }}" class="link list-social__link" >
+                            {%- render 'icon-tiktok' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_tumblr_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_tumblr_link }}" class="link list-social__link" >
+                            {%- render 'icon-tumblr' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_snapchat_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_snapchat_link }}" class="link list-social__link" >
+                            {%- render 'icon-snapchat' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_youtube_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_youtube_link }}" class="link list-social__link" >
+                            {%- render 'icon-youtube' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                      {%- if settings.social_vimeo_link != blank -%}
+                        <li class="list-social__item">
+                          <a href="{{ settings.social_vimeo_link }}" class="link list-social__link" >
+                            {%- render 'icon-vimeo' -%}
+                            <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                    </ul>
+                    {%- endif -%}
                   </div>
                 {%- when 'text' -%}
                   <div class="footer-block__details-content rte">
@@ -243,6 +253,7 @@
                     {%- endif -%}
                   </div>
                 {%- endcase -%}
+              </div>
             </div>
           {%- endfor -%}
         </div>
@@ -422,6 +433,18 @@
       "settings": [
         {
           "type": "text",
+          "id": "heading",
+          "default": "Contact",
+          "label": "Block title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "Show social icons"
+        },
+        {
+          "type": "text",
           "id": "location",
           "default": "60 Pendergast Street Brooklyn, NY 11237",
           "label": "Location",
@@ -573,19 +596,13 @@
     {
       "type": "text",
       "id": "newsletter_heading",
-      "default": "Subscribe to our emails",
+      "default": "Subscribe to our Newsletter",
       "label": "t:sections.footer.settings.newsletter_heading.label"
     },
     {
       "type": "header",
       "content": "t:sections.footer.settings.header__2.content",
       "info": "t:sections.footer.settings.header__2.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": false,
-      "label": "t:sections.footer.settings.show_social.label"
     },
     {
       "type": "header",

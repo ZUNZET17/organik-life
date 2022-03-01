@@ -2207,7 +2207,7 @@ input[type='checkbox'] {
 
   .header--middle-left {
     grid-template-areas: 'heading navigation icons';
-    grid-template-columns: auto auto 1fr;
+    grid-template-columns: 1fr auto 1fr;
     column-gap: 2rem;
   }
 
@@ -2552,7 +2552,8 @@ details[open] > .header__icon--menu .icon-hamburger {
 }
 
 .header__menu-item:hover span {
-  text-decoration: underline;
+  text-decoration: none;
+  color: rgba(var(--color-button), var(--alpha-button-background));
   text-underline-offset: 0.3rem;
 }
 
@@ -2570,8 +2571,8 @@ details[open] > .header__menu-item .icon-caret {
 
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgb(var(--color-foreground));
-  text-decoration: underline;
+  color: rgba(var(--color-button), var(--alpha-button-background));
+  text-decoration: none;
   text-underline-offset: 0.3rem;
 }
 

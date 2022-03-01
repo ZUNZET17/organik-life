@@ -31,7 +31,7 @@
             <span class="slide__subtitle h5 {% if block.settings.subtitle_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.subtitle_style == 'subtitle' %} subtitle{% endif %}">{{ block.settings.slide-subtitle | escape }}</span>
           </div>
           {% endif %}
-          <div class="slide__btn"><a class="button" href="">{{- block.settings.btn-txt -}}</a></div>
+          <div class="slide__btn"><a class="button" href="{{ block.settings.btn_link }}">{{- block.settings.btn-txt -}}</a></div>
         </div>
         </div>
       </div>
@@ -110,6 +110,12 @@
           "id": "btn-txt",
           "label": "Button text",
           "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link",
+          "default": "/collections/all"
         },
         {
           "type": "image_picker",

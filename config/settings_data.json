@@ -2,6 +2,7 @@
   "current": {
     "colors_accent_1": "#8eb35a",
     "type_body_font": "playfair_display_n4",
+    "page_width": "1200",
     "spacing_grid_horizontal": 20,
     "spacing_grid_vertical": 20,
     "buttons_radius": 24,
@@ -17,7 +18,10 @@
         "type": "header",
         "settings": {
           "color_scheme": "background-1",
-          "logo_width": 100,
+          "logo": "shopify:\/\/shop_images\/organika-logo-black_cfeaa0a2-8879-457b-9c9f-b64d9a7b7630.png",
+          "logo_width": 200,
+          "logo_drawer": "shopify:\/\/shop_images\/organika_logo.png",
+          "logo_drawer_width": 250,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "show_line_separator": true,
@@ -28,20 +32,22 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "e0f60487-9569-4d20-a145-589b3d25d81d": {
-            "type": "contact",
-            "settings": {
-              "location": "60 Pendergast Street Brooklyn, NY 11237",
-              "phone": "+1 9946-75-432",
-              "email": "sales@organik-life.com",
-              "website": "shopify:\/\/collections"
-            }
-          },
           "footer-0": {
             "type": "link_list",
             "settings": {
               "heading": "Quick links",
               "menu": "footer"
+            }
+          },
+          "e0f60487-9569-4d20-a145-589b3d25d81d": {
+            "type": "contact",
+            "settings": {
+              "heading": "Contact",
+              "show_social": true,
+              "location": "60 Pendergast Street Brooklyn, NY 11237",
+              "phone": "+1 9946-75-432",
+              "email": "sales@organik-life.com",
+              "website": "https:\/\/www.organikatheme.com"
             }
           },
           "footer-1": {
@@ -53,15 +59,14 @@
           }
         },
         "block_order": [
-          "e0f60487-9569-4d20-a145-589b3d25d81d",
           "footer-0",
+          "e0f60487-9569-4d20-a145-589b3d25d81d",
           "footer-1"
         ],
         "settings": {
           "color_scheme": "background-1",
           "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our emails",
-          "show_social": true,
+          "newsletter_heading": "Subscribe to our Newsletter",
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": true,

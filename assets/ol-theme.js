@@ -13,7 +13,10 @@ const OlTheme = (function () {
   $(document).ready(function(){
     $('.js-slider').slick({
       dots: false,
-      arrows: false
+      arrows: false,
+      autoplay: true,
+      pauseOnHover: false,
+      draggable: false
     });
   });
 

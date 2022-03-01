@@ -16,6 +16,7 @@ const OlTheme = (function () {
       arrows: false,
       autoplay: true,
       pauseOnHover: false,
+      pauseOnFocus: false,
       draggable: false
     });
   });

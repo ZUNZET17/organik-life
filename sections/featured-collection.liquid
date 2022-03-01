@@ -43,6 +43,7 @@
       </div>
     {% endunless %}
 
+    {% if request.page_type == 'index' %}
     <form class="product-type-filter">
       {%- for filter in section.settings.collection.filters -%}
         {% if filter.label == 'Product type' %}
@@ -81,6 +82,7 @@
         {% endif %}
       {%- endfor -%}
     </form>
+    {% endif %}
 
     <slider-component class="slider-mobile-gutter">
       <ul id="Slider-{{ section.id }}" class="grid--2-col product-grid{% if products_to_display == 4 or section.settings.collection == blank %} grid--2-col-tablet grid--4-col-desktop{% else %} grid--3-col-tablet{% endif %}{% if products_to_display > 5 %} grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider slider--tablet grid--peek{% endif %}" role="list">

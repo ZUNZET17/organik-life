@@ -31,6 +31,13 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
           "e0f60487-9569-4d20-a145-589b3d25d81d": {
             "type": "contact",
             "settings": {
@@ -39,14 +46,7 @@
               "location": "60 Pendergast Street Brooklyn, NY 11237",
               "phone": "+1 9946-75-432",
               "email": "sales@organik-life.com",
-              "website": "shopify:\/\/collections"
-            }
-          },
-          "footer-0": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "website": "https:\/\/www.organikatheme.com"
             }
           },
           "footer-1": {
@@ -58,14 +58,14 @@
           }
         },
         "block_order": [
-          "e0f60487-9569-4d20-a145-589b3d25d81d",
           "footer-0",
+          "e0f60487-9569-4d20-a145-589b3d25d81d",
           "footer-1"
         ],
         "settings": {
           "color_scheme": "background-1",
           "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our emails",
+          "newsletter_heading": "Subscribe to our Newsletter",
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": true,

@@ -1621,6 +1621,7 @@ details[open] > .share-button__fallback {
   height: 4.5rem;
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
+  max-width: 100%;
   position: relative;
   border: 0;
 }

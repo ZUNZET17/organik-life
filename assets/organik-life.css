@@ -181,6 +181,22 @@
   color: #333;
 }
 
+.rich-text__text {
+  margin-top: 2rem;
+  font-size: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .heading--section {
+    font-size: 4rem;
+  }
+
+  .rich-text__text {
+    margin-top: 4rem;
+    font-size: 2.7rem;
+  }
+}
+
 /* Featured products */
 
 input[type='radio'] {
@@ -191,7 +207,7 @@ input[type='radio'] {
 }
 
 .product-type-filter {
-  margin: 0 auto;
+  margin: 2rem auto 4rem;
 }
 
 .product-type-filter__list {
@@ -236,7 +252,9 @@ input[type='radio'] {
 }
 
 /* Collections */
-
+.collage {
+  margin-top: 2rem;
+}
 .card__heading {
   font-family: 'PlayFair Display', sans-serif;
   font-weight: 600;
@@ -281,7 +299,9 @@ input[type='radio'] {
 }
 
 @media screen and (min-width: 768px) {
-
+  .collage {
+    margin-top: 8rem;
+  }
   .collection-card--squared {
     grid-column-end: span 2;
   }

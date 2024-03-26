@@ -15,7 +15,7 @@
 </script>
 
 <div class="collage-wrapper page-width{% if section.settings.heading == blank %} no-heading{% endif %}">
-  <h2 class="heading--section">{{ section.settings.heading | escape }} TILE TEST</h2>
+  <h2 class="heading--section">{{ section.settings.heading | escape }}</h2>  
 
   <div class="collage collage--{{ section.settings.desktop_layout }}{% if section.settings.mobile_layout == 'collage' %} collage--mobile{% endif %}">
     {%- for block in section.blocks -%}

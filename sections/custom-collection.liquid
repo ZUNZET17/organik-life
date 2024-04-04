@@ -1,0 +1,61 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+{%- endstyle -%}
+
+<div>
+  <div class="collection">
+
+    <div class="collection">
+      <ul>
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          <li
+            class="js-featured-product"
+            product-type="{{ product.type }}">
+            {% render 'card-product', card_product: product
+            %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </di>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "custom collection",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Featured collection",
+        "label": "collection text"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Select collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "custom collection"
+      }
+    ]
+  }
+{% endschema %}
